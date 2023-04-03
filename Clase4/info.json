@@ -1,0 +1,16 @@
+{
+	"stringifiedContent": "{\n  \"name\": \"clase4\",\n  \"version\": \"1.0.0\",\n  \"description\": \"Clase archivos\",\n  \"main\": \"archivosCallbacks.js\",\n  \"scripts\": {\n    \"test\": \"echo \\\"Error: no test specified\\\" && exit 1\"\n  },\n  \"author\": \"\",\n  \"license\": \"ISC\",\n  \"type\": \"module\"\n}",
+	"objectContent": {
+		"name": "clase4",
+		"version": "1.0.0",
+		"description": "Clase archivos",
+		"main": "archivosCallbacks.js",
+		"scripts": {
+			"test": "echo \"Error: no test specified\" && exit 1"
+		},
+		"author": "",
+		"license": "ISC",
+		"type": "module"
+	},
+	"size": 247
+}
