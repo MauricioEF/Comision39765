@@ -1,0 +1,20 @@
+{
+  "name": "clase5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "desafio1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "aws-sdk": "^2.1350.0",
+    "moment": "^2.8.1"
+  },
+  "devDependencies": {
+    "papaconqueso": "^1.0.1"
+  }
+}

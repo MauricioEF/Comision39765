@@ -1,0 +1,26 @@
+[
+	{
+		"name": "Carlos",
+		"last_name": "Pelayes",
+		"password": "7e2138d48a6a5d0536f3826e555e61f6ca2bbfd3c9b109dfa0cdce4821030276",
+		"salt": "kHSO7K+Hgl98F/5d28VKN7RNRpLOwu3JdDiU4tRxSph2EMi5E9GTDl7qjwAvV1vcepV4veR7RBXSc22mPi777q9IKrK+f/+DwSzhWAhRDwmaDp0YQSbfDqyDNOHcsjyxlzC7mUABKuH1Nn6TGqRM1pWRg/j7/RHrSsXzkzduirs="
+	},
+	{
+		"name": "Carlos",
+		"last_name": "Pelayes",
+		"password": "d12271f1df403047d6d751f9c0ec686b47640931a1d31a265e0451ed0ad6cccb",
+		"salt": "h9YPwkO5pWbhYMuacq/ucKY59tnYirrC32zR5BoCmo48n6RzUfUE1Z48HD8GbivKGLfp12Jyqny0V2umhntgy2E8IdElFxF6ndujs6RTl9j294Y41+1eXXKhHBIOLu5J+ddxc8yFpi7QQMQYA7RE0Q/fqXp+BHoGQkUckPJIU98="
+	},
+	{
+		"name": "Carlos",
+		"last_name": "Pelayes",
+		"password": "7907dad6f6fab4c80d0ff1fb36c77f6e52b51d5da4ec44bca385bc7beb72c979",
+		"salt": "t0KfyU+Fa1KVOpcRCUeJtcTYxLbMJBk5UwgmbRPzVSYAMs+adizbq6h32VMfbd+FOdHt38iexrGP0yq5JKpQENi900rfdUUlK5M55ni4I8hYFXFqEpFJHEGq4GoLQ3UnJFJJePRXY4sZPeIjnaRaQbGYKSd7t5dAOxa/T1wXrDI="
+	},
+	{
+		"name": "Carlos",
+		"last_name": "Pelayes",
+		"password": "53f9b3c7922c74f1d76ab591d1d9f733254692de19366c8d94cb96320507fd10",
+		"salt": "OxLQZNI5nmr0p+M75Q71b4XkfWExE8d109fvLODjutRxq/tOetPMuqeMf8JjaVTZa/rihr08MGoEPRcbxSF+/4/ggBcsKzURGjtWmFD3rIzMypkafa0r/IvVwDdldwty1kAqcncsHhD9LEC7O6sR8JxRwlZrW64hpvdzdSVUv/k="
+	}
+]
