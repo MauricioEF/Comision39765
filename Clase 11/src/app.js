@@ -23,7 +23,6 @@ const io = new Server(server);
 
 const messages = [];
 io.on('connection',socket=>{
-    console.log("Nuevo socket conectado");
     socket.emit('logs',messages);
     socket.on('message',data=>{
         console.log(data);
