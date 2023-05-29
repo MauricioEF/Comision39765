@@ -1,0 +1,20 @@
+{
+  "name": "clase17",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev":"nodemon handsOnLab/src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^7.0.7",
+    "mongoose": "^7.2.0",
+    "mongoose-paginate-v2": "^1.7.1"
+  }
+}
