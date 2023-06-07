@@ -1,7 +1,8 @@
 import { Router } from "express";
 import passport from 'passport';
 import userModel from '../dao/mongo/user.js';
-import {createHash, validatePassword } from '../utils.js';
+import {createHash, generateToken, validatePassword } from '../utils.js';
+import { authToken } from "../middlewares/jwtAuth.js";
 
 const router = Router();
 
@@ -29,7 +30,59 @@ router.get('/loginFail',(req,res)=>{
     res.status(400).send({status:"error",error:req.session.messages});
 })
 
+router.get('/github',passport.authenticate('github'),(req,res)=>{});
 
+router.get('/githubcallback',passport.authenticate('github'),(req,res)=>{
+    const user = req.user;
+    //Aquí ya creo la sesión.
+    req.session.user = {
+        id: user.id,
+        name: user.first_name,
+        role:user.role,
+        email:user.email
+    }
+    res.send({status:"success",message:"Logueado, PERO CON GITHUB!!!!!"})
+})
+
+
+
+router.post('/jwtLogin', async(req,res)=>{
+    const  {email, password} = req.body;
+    let accessToken;
+    if (email === 'admin@admin.com' && password === '123') {
+        //Desde aquí ya puedo inicializar al admin.
+        const user = {
+          id: 0,
+          name: `Admin`,
+          role: 'admin',
+          email: '...',
+        };
+        //Adiós a session. GENERO TOKEN
+        accessToken = generateToken(user);
+        res.send({status:"success",accessToken:accessToken})
+      }
+      let user;
+
+      user = await userModel.findOne({ email }); //Sólo busco por mail
+      if (!user)
+      return res.sendStatus(400);
+      const isValidPassword = await validatePassword(password, user.password);
+      if (!isValidPassword)
+        return res.sendStatus(400);
+      user = {
+        id: user._id,
+        name: `${user.first_name} ${user.last_name}`,
+        email: user.email,
+        role: user.role,
+      };
+      accessToken = generateToken(user);
+      res.send({status:"success",accessToken})
+})
+
+router.get('/jwtProfile',authToken,async(req,res)=>{
+    console.log(req.user);
+    res.send({status:"success",payload:req.user})
+})
 
 
 router.post('/restorePassword',async(req,res)=>{

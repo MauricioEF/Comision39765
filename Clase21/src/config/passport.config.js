@@ -1,5 +1,6 @@
 import passport from 'passport';
 import local from 'passport-local';
+import GithubStrategy from 'passport-github2';
 import userModel from '../dao/mongo/user.js';
 import { createHash, validatePassword } from '../utils.js';
 
@@ -78,19 +79,52 @@ const initializePassportStrategies = () => {
     )
   );
 
+  passport.use(
+    'github',
+    new GithubStrategy(
+      {
+        clientID: 'Iv1.b55c6ef14ccd0d08',
+        clientSecret: '5effb2e147aab7053a213c6d57fe02b057c714c9',
+        callbackURL: 'http://localhost:8080/api/sessions/githubcallback',
+      },
+      async (accessToken, refreshToken, profile, done) => {
+        try {
+          console.log(profile);
+          //Tomo los datos que me sirvan.
+          const { name, email } = profile._json;
+          const user = await userModel.findOne({ email });
+          //DEBO GESTIONAR AMBAS LÓGICAS AQUÍ, OMG!!!
+          if(!user) {
+            //No existe? lo creo entonces.
+            const newUser =  {
+              first_name: name,
+              email,
+              password:''
+            }
+            const result = await userModel.create(newUser);
+            done(null,result);
+          }
+          //Si el usuario ya existía, Qué mejor!!! 
+          done(null,user);
+        } catch (error) {
+          done(error);
+        }
+      }
+    )
+  );
+
   passport.serializeUser(function (user, done) {
     return done(null, user.id);
   });
   passport.deserializeUser(async function (id, done) {
-    if(id===0){
-        return done(null,{
-            role:"admin",
-            name:"ADMIN"
-        })
+    if (id === 0) {
+      return done(null, {
+        role: 'admin',
+        name: 'ADMIN',
+      });
     }
     const user = await userModel.findOne({ _id: id });
     return done(null, user);
   });
-
 };
 export default initializePassportStrategies;

@@ -5,7 +5,7 @@ form.addEventListener('submit', async (event) => {
   const data = new FormData(form);
   const obj = {};
   data.forEach((value, key) => (obj[key] = value));
-  const response = await fetch('/api/sessions/login', {
+  const response = await fetch('/api/sessions/jwtLogin', {
     method: 'POST',
     body: JSON.stringify(obj),
     headers: {
@@ -13,5 +13,8 @@ form.addEventListener('submit', async (event) => {
     },
   });
   const responseData = await response.json();
-  console.log(responseData);
+  if(responseData.status==="success") {
+    console.log(responseData);
+    localStorage.setItem('accessToken',responseData.accessToken)
+  }
 });
