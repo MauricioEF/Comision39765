@@ -69,6 +69,7 @@ const initializePassportStrategies = () => {
     secretOrKey:'jwtSecret'
   },async(payload,done)=>{
     try {
+      //Si el token no existe, entonces el payload llega falso o directamente un error
         return done(null,payload);
     } catch (error) {
         return done(error);

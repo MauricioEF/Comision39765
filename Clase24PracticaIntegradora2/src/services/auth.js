@@ -20,9 +20,10 @@ export const passportCall = (strategy,options={}) =>{
 
             if(!user) {
                 //¿Qué significa el que no haya encontrado user en cada caso?
+                //Sin el strategyType,No encontrar usuario significa RECHAZAR DIRECTAMENTE
                 switch(options.strategyType) {
                     case 'jwt':
-                        req.error = info.message?info.message:info.toString;
+                        req.error = info.message?info.message:info.toString();
                         return next();
                     case 'locals':
                         return res.sendUnauthorized(info.message?info.message:info.toString())
