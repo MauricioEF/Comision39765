@@ -20,8 +20,8 @@
                 "SUPERADMIN_PASSWORD":"123",
                 "JWT_COOKIE":"AuthCookie",
                 "JWT_SECRET":"ASD=?)ASDKLÑKLKAWS",
-                "MAILER_USER":"ing.mauricioespinosa.tutorias@gmail.com",
-                "MAILER_PASSWORD":"okbgrdzofrzowief"
+                "MAILER_USER":"mailer",
+                "MAILER_PASSWORD":"mailer"
             }
         }
     ]
