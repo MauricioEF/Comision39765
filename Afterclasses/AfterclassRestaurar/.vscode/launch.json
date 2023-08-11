@@ -15,13 +15,13 @@
             "restart": true,
             "runtimeExecutable": "nodemon",
             "env":{
-                "MONGO_URL":"mongodb+srv://CoderUser:123@clustercitofeliz.m6oxtjj.mongodb.net/ERPSystem?retryWrites=true&w=majority",
+                "MONGO_URL":"c",
                 "SUPERADMIN_EMAIL":"admin@admin.com",
                 "SUPERADMIN_PASSWORD":"123",
                 "JWT_COOKIE":"AuthCookie",
                 "JWT_SECRET":"ASD=?)ASDKLÑKLKAWS",
-                "MAILER_USER":"ing.mauricioespinosa.tutorias@gmail.com",
-                "MAILER_PASSWORD":"okbgrdzofrzowief"
+                "MAILER_USER":"b",
+                "MAILER_PASSWORD":"a"
             }
         }
     ]
