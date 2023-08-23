@@ -1,0 +1,9 @@
+paths:
+  /api/pets:
+    get:
+      summary: Obtiene a las mascotas
+      tags:
+        - Pets
+      responses:
+        "200":
+          description: Todo ok

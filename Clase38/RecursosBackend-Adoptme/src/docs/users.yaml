@@ -1,0 +1,110 @@
+paths:
+  /api/users:
+    get:
+      summary: Devuelve los usuarios registrados hasta el momento
+      tags:
+        - Users
+      responses:
+        "200":
+          description: Los usuarios se obtienen correctamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#components/schemas/User'
+        "500":
+          description: Error interno, en este endpoint se deberá a un error en la base de datos, revisar conexión o parámetros de búsqueda
+    post:
+      summary: crea un nuevo usuario
+      tags:
+        - Users
+  /api/users/{uid}:
+    get:
+      summary: Obtiene el usuario del id proporcionado
+      tags:
+        - Users
+      parameters:
+      - name: uid
+        in: path
+        required: true
+        description: id para obtener al usuario
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Usuario encontrado correctamente
+        "404":
+          description: Usuario no encontrado
+    put:
+      summary: Actualiza el usuario del id proporcionado
+      tags:
+        - Users
+      parameters:
+      - name: uid
+        in: path
+        required: true
+        description: id para obtener al usuario
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#components/requestBodies/UpdateUser'
+      responses:
+        "200":
+          description: Usuario modificado
+        "400":
+          description: Datos incompletos, corroborar cuerpo
+        "500":
+          description: Error interno
+    delete:
+      summary: Elimina al usuario del id proporcionado
+      tags:
+        - Users
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        first_name:
+          type: string
+          description: Nombre del usuario
+        last_name:
+          type: string
+          description: Apellido del usuario
+        email:
+          type: string
+          description: Correo electrónico del usuario (único)
+        password:
+          type: string
+          description: Contraseña hasheada del usuario
+        role:
+          type: string
+          description: Rol del usuario
+        pets:
+          type: array
+          description: Arreglo con los ids de las mascotas adoptadas
+        _id: 
+          type: string
+          description: Id autogenerado por el buen monguito
+      example:
+        _id: ObjectId("asdasccasd")
+        first_name: Juan
+        last_name: McKenna
+        email: correoJuan@correo.com
+        password: A=S))'207&(AS&D&&)/
+  requestBodies:
+    UpdateUser:
+      type: object
+      properties:
+        first_name:
+          type: string
+          description: Nuevo nombre del usuario
+        last_name:
+          type: string
+          description: Nuevo apellido del usuario
+      
