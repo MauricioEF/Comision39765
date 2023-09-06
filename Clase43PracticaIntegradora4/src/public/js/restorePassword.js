@@ -1,11 +1,11 @@
-const form = document.getElementById('loginForm');
+const form = document.getElementById('restorePasswordForm');
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   const data = new FormData(form);
   const obj = {};
   data.forEach((value, key) => (obj[key] = value));
-  const response = await fetch('/api/sessions/login', {
+  const response = await fetch('/api/users/new-password-temp', {
     method: 'POST',
     body: JSON.stringify(obj),
     headers: {

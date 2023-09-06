@@ -15,7 +15,7 @@
             "restart": true,
             "runtimeExecutable": "nodemon",
             "env":{
-                "MONGO_URL":"URL",
+                "MONGO_URL":"MONGO_URL",
                 "SUPERADMIN_EMAIL":"admin@admin.com",
                 "SUPERADMIN_PASSWORD":"123",
                 "JWT_COOKIE":"AuthCookie",

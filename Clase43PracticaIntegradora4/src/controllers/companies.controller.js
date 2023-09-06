@@ -1,5 +1,8 @@
 import { createHash } from '../services/auth.js';
 import { companiesService, usersService } from '../services/repositories.js';
+import { makeRandomString } from '../utils.js';
+import MailingService  from '../services/MailingService.js';
+import DTemplates from '../constants/DTemplates.js';
 
 const getCompanies = async (req, res) => {
   const companies = await companiesService.getCompanies();
@@ -36,20 +39,30 @@ const createCompany = async (req, res) => {
       plan,
       industry,
       address,
+      planExpiration: new Date().toISOString()
     };
     const companyResult = await companiesService.create(company);
-    const basePassword = '123';
+    const basePassword = makeRandomString(8);
     const hashedPassword = await createHash(basePassword);
     const newAdmin = {
       name: `${adminFirstName} ${adminLastName}`,
       email: adminEmail,
-      password: '123',
       password: hashedPassword,
       role: 'admin',
       company: companyResult._id,
     };
     const userResult = await usersService.create(newAdmin);
     await companiesService.update(companyResult, { users: [userResult._id] });
+    try {
+      const mailService = new MailingService();
+      const result = await mailService.sendMail(adminEmail,DTemplates.NEW_ADMIN,{
+        user: {name: newAdmin.name, password: basePassword },
+        company
+      })
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    }
     res.sendSuccessWithPayload({
       status: 'success',
       payload: { user: userResult._id, company: companyResult._id },
@@ -85,9 +98,20 @@ const deleteCompany = async (req, res) => {
   res.sendStatus(201);
 };
 
+const expireCompanies = async ( req,res ) => {
+  const companies = req.body;
+  console.log(companies);
+  //Aquí ya actualizamos las empresas
+  //El reto está en que el updateMany requiere un filtro
+  await companiesService.bulkUpdate(companies,{status:'expired'})
+  //¿Ya hice el bulk update? NOTIFICA CON TUS PLANTILLAS de correos que ya expiró
+  res.sendStatus(200);
+}
+
 export default {
   createCompany,
   deleteCompany,
+  expireCompanies,
   getCompanies,
   getCompanyById,
   updateCompany,

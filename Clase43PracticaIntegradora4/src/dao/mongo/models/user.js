@@ -14,7 +14,16 @@ const schema = new mongoose.Schema({
         type:mongoose.SchemaTypes.ObjectId,
         ref:'Companies'
     },
-    password:String
+    password:String,
+    temporalPassword: {
+        type:Boolean,
+        default:true
+    },
+    documents:[
+        {},
+        {},
+        {}
+    ]
 })
 
 const userModel = mongoose.model(collection,schema);

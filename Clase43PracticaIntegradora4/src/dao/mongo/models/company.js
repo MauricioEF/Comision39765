@@ -11,6 +11,7 @@ const schema = new mongoose.Schema(
       enum: ['TEST', 'BASIC', 'PREMIUM'],
       default: 'BASIC',
     },
+    planExpiration:Date,
     status: {
       type: String,
       default: 'active',

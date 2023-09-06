@@ -6,6 +6,7 @@ class ViewsRouter extends BaseRouter {
         this.get('/',['PUBLIC'],viewsController.home);
         this.get('/new-company',['SUPERADMIN'],viewsController.newCompany)
         this.get('/new-employee',['ADMIN'],viewsController.newEmployee)
+        this.get('/password-restore',['PUBLIC'],viewsController.restorePassword)
     }
 }
 

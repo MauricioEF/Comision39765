@@ -1,4 +1,5 @@
 import DTemplates from '../constants/DTemplates.js';
+import UserTokenDTO from '../dto/User/TokenDTO.js';
 import MailingService from '../services/MailingService.js';
 import { generateToken } from '../services/auth.js';
 
@@ -19,8 +20,13 @@ const register = async (req, res) => {
 
 const login = (req, res) => {
   try {
-    console.log(req.user);
-    const token = generateToken(req.user);
+    console.log(req.user);//AHORA SÍ puedo acceder a temporalPassword
+    if(req.user.temporalPassword){
+      const tempToken = generateToken({email:req.user.email},'1d');
+      return res.cookie('temp',tempToken).send({status:"success",redirect:'/password-restore'})
+    }
+    const tokenizedUser = UserTokenDTO.getFrom(req.user);
+    const token = generateToken(tokenizedUser);
     res
       .cookie('authToken', token, {
         maxAge: 1000 * 3600 * 24,

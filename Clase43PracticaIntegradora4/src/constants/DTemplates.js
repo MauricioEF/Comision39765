@@ -1,3 +1,4 @@
 export default {
-    WELCOME: 'welcome'
+    WELCOME: 'welcome',
+    NEW_ADMIN: 'newAdmin'
 }

@@ -4,6 +4,7 @@ import usersController from "../controllers/users.controller.js";
 class UsersRouter extends BaseRouter {
     init(){
         this.post('/employee',['ADMIN'],usersController.createEmployee);
+        this.post('/new-password-temp',['NO_AUTH'],usersController.newPasswordTemp)
     }
 }
 

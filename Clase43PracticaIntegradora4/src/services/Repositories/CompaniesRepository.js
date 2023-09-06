@@ -26,4 +26,19 @@ export default class CompaniesRepository {
     addUser = (id,userId) =>{
         return this.dao.addUser(id,userId);
     }
+
+    bulkUpdate = (companies, updateBody) => {
+        const bulk = [];
+        companies.forEach(company=>{
+            const updateDoc = {
+                'updateOne':{
+                    'filter': {_id:company._id},
+                    'update':updateBody,
+                    'upsert':false
+                }
+            }
+            bulk.push(updateDoc);
+        })
+        return this.dao.bulkUpdate(bulk);
+    }
 }

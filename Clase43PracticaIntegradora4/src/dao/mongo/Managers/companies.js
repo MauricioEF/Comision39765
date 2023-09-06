@@ -24,4 +24,8 @@ export default class CompaniesDao {
   addUser = (id,userId) =>{
     return companyModel.findByIdAndUpdate(id,{$push:{users:userId}})
   }
+
+  bulkUpdate = (bulkOperation) =>{
+    return companyModel.bulkWrite(bulkOperation);
+  }
 }

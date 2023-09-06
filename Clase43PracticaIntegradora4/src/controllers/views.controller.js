@@ -29,8 +29,13 @@ const newEmployee = (req,res)=>{
     res.render('NewEmployee');
 }
 
+const  restorePassword = (req,res)=> {
+    res.render('RestorePassword');
+}
+
 export default {
     home,
     newCompany,
-    newEmployee
+    newEmployee,
+    restorePassword
 }

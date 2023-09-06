@@ -57,8 +57,7 @@ const initializePassportStrategies = () => {
         const isValidPassword = await validatePassword(password,user.password);
         if(!isValidPassword) return done(null, false,{message:"Incorrect credentials"});
         //El usuario ya existe y sí es la contraseña
-        resultUser = UserTokenDTO.getFrom(user);
-        return done(null, resultUser);
+        return done(null, user);
     } catch (error) {
         return done(error);
     }

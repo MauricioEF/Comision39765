@@ -9,5 +9,15 @@ export default {
                 cid:"banner"
             }
         ]
+    },
+    newAdmin: {
+        subject:"Acceso a plataforma",
+        attachments: [ 
+            {
+                filename:'admin.png',
+                path:`${__dirname}/public/images/user.png`,
+                cid:'company1'
+            }
+        ]
     }
 }
