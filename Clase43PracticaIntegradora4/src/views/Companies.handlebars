@@ -1,0 +1,13 @@
+<div>
+    <h1>Empresas registradas</h1>
+    {{#each companies}}
+    <div>
+        <p>
+            {{this.name}}
+        </p>
+        <p>
+            {{this.status}}
+        </p>
+    </div>
+    {{/each}}
+</div>
