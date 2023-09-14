@@ -1,0 +1,13 @@
+@import "variables";
+
+.container {
+    width:90%;
+    margin:auto;
+    background-color: $primaryBackground;
+    padding: 3rem 2rem;
+}
+
+.highlighted{
+    background-color: rgb(255, 255, 255);
+}
+

@@ -1,0 +1,31 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\src\\app.js",
+            "restart": true,
+            "runtimeExecutable": "nodemon",
+            "env":{
+                "MONGO_URL":"MONGOURL"
+                ,
+                "SUPERADMIN_EMAIL":"admin@admin.com",
+                "SUPERADMIN_PASSWORD":"123",
+                "JWT_COOKIE":"AuthCookie",
+                "JWT_SECRET":"ASD=?)ASDKLÑKLKAWS",
+                "MAILER_USER":"mailer",
+                "MAILER_PASSWORD":"mailer",
+                "LOGGER_ENV":"dev"
+            },
+            "outputCapture":"std"
+        }
+    ]
+}

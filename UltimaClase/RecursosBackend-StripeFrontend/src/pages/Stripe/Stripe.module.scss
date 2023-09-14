@@ -1,0 +1,47 @@
+@import '../../index.scss';
+
+.title {
+    font-size:2rem;
+    color:$primaryContent;
+    text-align: center;
+}
+
+.productsContainer{
+    display:flex;
+    justify-content: space-between;
+    padding:0 10rem;
+}
+.productCard{
+    width:100px;
+    height:100px;
+    border-radius: 5px;
+    text-align: center;
+    padding:0 10px;
+    border:1px solid black;
+    &:hover{
+        background-color: black;
+        color:white;
+        font-weight: bold;
+        cursor: pointer;
+    }
+}
+
+.genericButton{
+    width:10rem;
+    padding: 10px 15px;
+    border-radius: 15px;
+    background-color: $primaryContent;
+    letter-spacing: 2px;
+    font-weight:bold;
+    &:hover{
+        background-color: black;
+        color:white;
+        border: 1px solid $primaryContent;
+        cursor: pointer;
+    }
+}
+
+.buttonPanel{
+    display:flex;
+    justify-content: center;
+}

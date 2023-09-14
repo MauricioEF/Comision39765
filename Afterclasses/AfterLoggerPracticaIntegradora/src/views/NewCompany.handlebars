@@ -1,0 +1,45 @@
+<h2>Creador de compañías</h2>
+
+<form id="newCompanyForm">
+    <label>Razón social o denominación de la empresa</label>
+    <input name="legal_name">
+    <br/>
+    <label>Nombre público de la empresa</label>
+    <input name="name">
+    <br/>
+    <label>¿Con qué plan se registra la empresa?</label>
+    <select name="plan">
+        <option value="BASIC">Básico</option>
+        <option value="PREMIUM">Premium</option>
+    </select>
+    <br/>
+    <label>Rol o industria de la empresa</label>
+    <select name="industry">
+        <option value="educative">Educación / E-learning</option>
+        <option value="chemical">Industria química</option>
+        <option value="it">Informática/Tecnológica</option>
+        <option value="logistics">Logística</option>
+        <option value="security">Seguridad</option>
+    </select>
+    <br/>
+    <label>Dirección</label>
+    <input name="address">
+    <br/>
+    <br/>
+    <h2>Datos del adminsitrador/representante</h2>
+    <br/>
+    <br/>
+    <label>Nombre del administrador/representante</label>
+    <input name="adminFirstName">
+    <br/>
+    <label>Apellido del administrador/representante</label>
+    <input name="adminLastName">
+    <br/>
+    <label>Correo electrónico del administrador/representante</label>
+    <input name="adminEmail">
+    <br/>
+    <br/>
+    <input type="submit">
+</form>
+
+<script src="/js/newCompany.js"></script>

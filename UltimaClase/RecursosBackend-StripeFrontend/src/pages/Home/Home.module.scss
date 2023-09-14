@@ -1,0 +1,31 @@
+@import '../../index';
+
+.title {
+    font-size:2rem;
+    color:$primaryContent;
+    text-align: center;
+}
+
+
+.buttonsContainer{
+    width:50%;
+    margin:auto;
+    display:flex;
+    justify-content: center;
+    padding:3rem 1rem;
+}
+
+.genericButton{
+    width:10rem;
+    padding: 10px 15px;
+    border-radius: 15px;
+    background-color: $primaryContent;
+    letter-spacing: 2px;
+    font-weight:bold;
+    &:hover{
+        background-color: black;
+        color:white;
+        border: 1px solid $primaryContent;
+        cursor: pointer;
+    }
+}
